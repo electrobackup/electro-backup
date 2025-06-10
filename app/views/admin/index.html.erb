@@ -1,0 +1,81 @@
+<h1>Admin Home</h1>
+
+<div class="flex flex-wrap mt-8 w-full items-center max-w-4xl">
+  <h2 class="text-2xl text-grey-800 font-medium mb-4">Денна статистика</h2>
+  <div class="flex gap-10 flex-col md:flex-row justify-between w-full">
+    <div class="max-w-sm rounded overflow-hidden shadow-xl bg-gradient-to-r from-blue-400 to-blue-300">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2 text-white">Дохід</div>
+        <p class="text-white text-base">
+          $<%= @quick_stats[:revenue] ? (@quick_stats[:revenue]/100.0).to_s : "0" %>
+        </p>
+      </div>
+    </div>
+    <div class="max-w-sm rounded overflow-hidden shadow-xl bg-gradient-to-r from-blue-400 to-blue-300">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2 text-white">Загальний продаж</div>
+        <p class="text-white text-base">
+          <%= @quick_stats[:sales] ? (@quick_stats[:sales]).to_s : "0" %>
+        </p>
+      </div>
+    </div>
+    <div class="max-w-sm rounded overflow-hidden shadow-xl bg-gradient-to-r from-blue-400 to-blue-300">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2 text-white">Середній продаж</div>
+        <p class="text-white text-base">
+          $<%= @quick_stats[:avg_sale] ? (@quick_stats[:avg_sale]/100.0).to_s : "0" %>
+        </p>
+      </div>
+    </div>
+    <div class="max-w-sm rounded overflow-hidden shadow-xl bg-gradient-to-r from-blue-400 to-blue-300">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2 text-white">Товар/Продаж</div>
+        <p class="text-white text-base">
+          <%= @quick_stats[:per_sale].to_i %>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="my-8 w-full items-center">
+    <h2 class="text-2xl text-grey-800 font-medium mb-4">Дохід</h2>
+    <div class="w-full" data-controller="dashboard" data-dashboard-revenue-value="<%= @revenue_by_day.to_json %>">
+      <canvas id="revenueChart"></canvas>
+    </div>
+  </div>
+
+  <div class="flex flex-col w-full">
+    <h2 class="text-2xl text-grey-800 mb-4 font-medium">Нещодавні не виконані замовлення</h2>
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-blue-100" style="border-collapse: separate; border-spacing: 0;">
+      <thead>
+        <tr class="text-grey-800">
+          <th class="px-6 py-3 border-b-2 border-blue-200 bg-blue-100">Номер замовлення</th>
+          <th class="px-6 py-3 border-b-2 border-blue-200 bg-blue-100">Покупець</th>
+          <th class="px-6 py-3 border-b-2 border-blue-200 bg-blue-100">Дата</th>
+          <th class="px-6 py-3 border-b-2 border-blue-200 bg-blue-100">Кількість</th>
+        </tr>
+      </thead>
+      <tbody class="text-grey-700">
+        <% @orders.each do |order| %>
+          <tr>
+            <td class="px-6 py-4 border-b border-blue-200">
+              <%= link_to order.id, admin_order_path(order), class: "underline" %>
+            </td>
+            <td class="px-6 py-4 border-b border-blue-200">
+              <%= order.customer_email %>
+            </td>
+            <td class="px-6 py-4 border-b border-blue-200">
+              <%= order.created_at.strftime("%B %d, %Y %H:%M") %>
+            </td>
+            <td class="px-6 py-4 border-b border-blue-200">
+              <%= (order.total/100.0).to_s %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,22 @@
+<div id="<%= dom_id stock %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Мінімальна кількість у замовленні</strong>
+    <%= stock.size %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Обсяг залишків</strong>
+    <%= stock.amount %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Товар</strong>
+    <%= stock.product_id %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Переглянути залишок", [:admin, stock.product, stock], class: "rounded-lg py-3 px-5 bg-blue-100 inline-block font-medium" %>
+    <%= link_to "Змінити залишок", edit_admin_product_stock_path(stock.product, stock), class: "rounded-lg py-3 ml-2 px-5 bg-blue-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
