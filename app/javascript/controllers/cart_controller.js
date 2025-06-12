@@ -18,7 +18,7 @@ export default class extends Controller {
       div.classList.add("mt-2")
       div.innerText = `Товар: ${item.name} - ${item.price} грн - Кількість: ${item.size} - Quantity: ${item.quantity}`
       const deleteButton = document.createElement("button")
-      deleteButton.innerText = "Remove"
+      deleteButton.innerText = "Видалити"
       console.log("item.id: ", item.id)
       deleteButton.value = JSON.stringify({id: item.id, size: item.size})
       deleteButton.classList.add("bg-gray-500", "rounded", "text-white", "px-2", "py-1", "ml-2")
@@ -74,7 +74,7 @@ export default class extends Controller {
         } else {
           response.json().then(body => {
             const errorEl = document.createElement("div")
-            errorEl.innerText = `There was an error processing your order. ${body.error}`
+            errorEl.innerText = `Виникла помилка ${body.error}`
             let errorContainer = document.getElementById("errorContainer")
             errorContainer.appendChild(errorEl)
           })
