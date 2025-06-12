@@ -30,14 +30,14 @@ class Admin::CategoriesTest < ApplicationSystemTestCase
     fill_in "Name", with: @admin_category.name
     click_on "Update Category"
 
-    assert_text "Category was successfully updated"
+    assert_text "Категорію успішно оновлено"
     click_on "Back"
   end
 
   test "should destroy Category" do
     visit admin_category_url(@admin_category)
-    click_on "Destroy this category", match: :first
+    click_on "Видалити категорію", match: :first
 
-    assert_text "Category was successfully destroyed"
+    assert_text "Категорію було успішно видалено"
   end
 end

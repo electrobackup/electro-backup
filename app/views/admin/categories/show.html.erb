@@ -6,9 +6,9 @@
 
     <%= render @admin_category %>
 
-    <%= link_to "Edit this category", edit_admin_category_path(@admin_category), class: "mt-2 rounded-lg py-3 px-5 bg-blue-100 inline-block font-medium" %>
+    <%= link_to "Змінити категорію", edit_admin_category_path(@admin_category), class: "mt-2 rounded-lg py-3 px-5 bg-blue-100 inline-block font-medium" %>
     <div class="inline-block ml-2">
-      <%= button_to "Destroy this category", admin_category_path(@admin_category), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-blue-100 font-medium" %>
+      <%= button_to "Видалити категорію", admin_category_path(@admin_category), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-blue-100 font-medium" %>
     </div>
     <%= link_to "Назад до категорій", admin_categories_path, class: "ml-2 rounded-lg py-3 px-5 bg-blue-100 inline-block font-medium" %>
   </div>
