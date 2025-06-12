@@ -50,7 +50,4 @@ end
   # Success and cancel routes
   get 'success', to: 'checkouts#success'
   get 'cancel', to: 'checkouts#cancel'
-  
-
-
 end

@@ -1,7 +1,7 @@
 <h1>Сторінка категорій</h1>
 <div class="min-h-screen flex justify-center">
   <div class="flex flex-wrap flex-col mt-6">
-    <h2 class="text-lg text-gray-800">Filter</h2>
+    <h2 class="text-lg text-gray-800">Фільтрувати</h2>
     <%= form_with url: category_path(@category), method: :get, class: "flex flex-col"  do |form| %>
       <%= form.number_field :min, placeholder: "Мінімальна ціна", class: "border border-gray-800 rounded-md p-2 w-32" %>
       <%= form.number_field :max, placeholder: "Максимальна ціна", class: "border border-gray-800 rounded-md p-2 mt-2 w-32" %>

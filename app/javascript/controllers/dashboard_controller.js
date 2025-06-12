@@ -18,7 +18,7 @@ export default class extends Controller {
       data: {
         labels: labels,
         datasets: [{
-          label: 'Revenue $',
+          label: 'грн',
           data: data,
           borderWidth: 3,
           fill: true
