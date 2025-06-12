@@ -1,4 +1,4 @@
-class TestCheckoutsController < ApplicationController
+class TestCheckoutController < ApplicationController
     def create
       cart = params[:cart]
       
