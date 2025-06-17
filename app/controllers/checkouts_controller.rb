@@ -1,4 +1,10 @@
 class CheckoutsController < ApplicationController
+
+  def create
+    cart = params[:cart]
+    shipping_form
+  end
+
   def shipping_form
     @order = Order.new  # Initialize a new order object to bind to the form
   end

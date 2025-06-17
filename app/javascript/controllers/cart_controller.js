@@ -16,7 +16,7 @@ export default class extends Controller {
       total += item.price * item.quantity
       const div = document.createElement("div")
       div.classList.add("mt-2")
-      div.innerText = `Товар: ${item.name} - ${item.price} грн - Кількість: ${item.size} - Quantity: ${item.quantity}`
+      div.innerText = `Товар: ${item.name} - ${item.price} грн - Кількість: ${item.quantity}`
       const deleteButton = document.createElement("button")
       deleteButton.innerText = "Видалити"
       console.log("item.id: ", item.id)
