@@ -21,7 +21,7 @@ export default class extends Controller {
       deleteButton.innerText = "Видалити"
       console.log("item.id: ", item.id)
       deleteButton.value = JSON.stringify({id: item.id, size: item.size})
-      deleteButton.classList.add("bg-gray-500", "rounded", "text-white", "px-2", "py-1", "ml-2")
+      deleteButton.classList.add("bg-blue-900", "rounded", "text-white", "px-2", "py-1", "ml-2")
       deleteButton.addEventListener("click", this.removeFromCart)
       div.appendChild(deleteButton)
       this.element.prepend(div)
