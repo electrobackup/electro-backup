@@ -40,8 +40,8 @@ class CheckoutsController < ApplicationController
         li_0_name: first_item[:name],
         li_0_price: first_item[:price],
         li_0_quantity: first_item[:quantity],
-        currency_code: "USD",
-        x_receipt_link_url: "http://localhost:3000/success"
+        currency_code: "UAH",
+        x_receipt_link_url: "https://electro-backup.onrender.com/success"
       }
   
       redirect_url = "#{base_url}?#{payload.to_query}"
