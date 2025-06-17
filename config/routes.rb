@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   get "admin" => "admin#index"
   get "cart" => "carts#show"
-  # post "checkout" => "checkouts#create"
+  post "checkout" => "checkouts#create"
   get "success" => "checkouts#success"
   get "cancel" => "checkouts#cancel"
   post "webhooks" => "webhooks#stripe"
@@ -35,17 +35,17 @@ Rails.application.routes.draw do
 #   post "/checkout", to: "checkouts#create"
 # get "/checkout/shipping_form", to: "checkouts#shipping_form"
 # post "/checkout/shipping_submit", to: "checkouts#submit_shipping"
-resources :checkouts, only: [:create] do
-  collection do
-    get :shipping_form
-    post :submit_shipping
-  end
-end
-
- resource :checkouts, only: [:create] do
-    get :shipping_form, on: :collection
-    post :submit_shipping, on: :collection
-  end
+# resources :checkouts, only: [:create] do
+#   collection do
+#     get :shipping_form
+#     post :submit_shipping
+#   end
+# end
+#
+#  resource :checkouts, only: [:create] do
+#     get :shipping_form, on: :collection
+#     post :submit_shipping, on: :collection
+#   end
 
   # Success and cancel routes
   get 'success', to: 'checkouts#success'
